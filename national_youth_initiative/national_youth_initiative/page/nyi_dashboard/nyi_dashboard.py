@@ -154,7 +154,9 @@ def _load_source(src):
 
 @frappe.whitelist()
 def get_dashboard_data():
+	# Only submitted reports count: drafts include work in progress and re-entered copies of
+	# reports already submitted in the other form variant, which would be counted twice.
 	reports = []
 	for src in SOURCES:
-		reports.extend(_load_source(src))
+		reports.extend(r for r in _load_source(src) if r["status"] == "Submitted")
 	return {"reports": reports, "generated_at": str(now_datetime())}

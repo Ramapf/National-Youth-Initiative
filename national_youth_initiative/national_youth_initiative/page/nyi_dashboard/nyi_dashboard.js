@@ -220,7 +220,6 @@ class NYIDashboard {
 				${filt("district", __("District"))}
 				${filt("block", __("Block"))}
 				${filt("area", __("Area Type"))}
-				${filt("status", __("Reporting Status"))}
 				<div class="nyi-filter-actions">
 					<button class="btn btn-default btn-sm" data-action="reset">${__("Reset")}</button>
 					<span class="nyi-updated text-muted"></span>
@@ -434,10 +433,7 @@ class NYIDashboard {
 					.map((g) => ({ value: `${g.state}|${g.district}|${g.block}`, label: F.district ? g.block : `${g.block} (${g.district})` }))
 			).sort(by_label),
 			area: uniq(geo.filter((g) => g.area).map((g) => ({ value: g.area, label: g.area }))).sort(by_label),
-			status: [
-				{ value: "Submitted", label: __("Submitted") },
-				{ value: "Draft", label: __("Draft") },
-			],
+			// No Reporting Status filter: the server sends submitted reports only.
 		};
 		const any = { year: __("All years"), org: __("All organisations"), state: __("All states"), district: __("All districts"), block: __("All blocks"), area: __("Urban & Rural"), status: __("All") };
 		const current = {

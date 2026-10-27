@@ -4,11 +4,11 @@ authors = [
     { name = "Azim Premji Foundation", email = "mahaveer.p@azimpremjifoundation.org"}
 ]
 description = "NYI programme dashboards and reports"
-requires-python = ">=3.14"
+requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = [
-    # "frappe~=16.0.0" # Installed and managed by bench.
+    # "frappe~=15.0.0" # Installed and managed by bench.
 ]
 
 [build-system]
@@ -25,7 +25,7 @@ packages = []
 
 [tool.ruff]
 line-length = 110
-target-version = "py314"
+target-version = "py310"
 
 [tool.ruff.lint]
 select = [
